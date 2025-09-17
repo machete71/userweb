@@ -100,23 +100,26 @@ nav a[aria-current="page"] {
 #contact { grid-area: contact; }
 .full { grid-column: 1 / -1; }
 
-/* Profile photo styling */
+/* Profile layout behavior */
 .profile {
   align-self: start;
-  position: sticky; /* keep visible when scrolling */
+  position: sticky;     /* keep visible when scrolling */
   top: 20px;
-  padding: 0;            /* no extra space */
-  overflow: hidden;
-  background: none;      /* remove white background */
-  box-shadow: none;      /* remove shadow */
-  border-radius: 0;      /* let image control rounding */
 }
-.profile img {
+/* Profile card hugs image */
+.profile.card {
+  padding: 0;           /* override .card padding */
+  overflow: hidden;     /* clip corners/overflow */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile.card img {
   display: block;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  border-radius: 8px;
+  width: 100%;          /* image fills card width */
+  height: auto;         /* keep aspect ratio */
+  border-radius: 8px;   /* match card rounding */
 }
 
 /* Headings */
