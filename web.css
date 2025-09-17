@@ -11,7 +11,7 @@ body {
   color: #333;
   line-height: 1.6;
 
-    /* expansions */
+  /* expansions */
   font-size: 16px;
   margin: 0;
   padding: 1rem;
@@ -33,6 +33,7 @@ body {
 .skip:focus {
   top: 10px;
 }
+
 /* Header */
 header {
   background-color: #133;
@@ -104,8 +105,11 @@ nav a[aria-current="page"] {
   align-self: start;
   position: sticky; /* keep visible when scrolling */
   top: 20px;
-  padding: 0;       /* remove extra padding so image fills */
+  padding: 0;            /* no extra space */
   overflow: hidden;
+  background: none;      /* remove white background */
+  box-shadow: none;      /* remove shadow */
+  border-radius: 0;      /* let image control rounding */
 }
 .profile img {
   display: block;
@@ -152,21 +156,6 @@ footer {
   }
 }
 
-/* Responsive: stack on small screens */
-@media (max-width: 800px) {
-  .layout {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "intro"
-      "profile"
-      "about"
-      "contact";
-  }
-  .profile {
-    position: static;
-  }
-}
-
 /* Back button styling */
 .back-button {
   display: inline-block;
@@ -182,4 +171,3 @@ footer {
 .back-button:focus {
   background: #245;
 }
-
