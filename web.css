@@ -25,7 +25,7 @@ body {
 .skip:focus {
   top: 10px;
 }
-
+/* Header */
 header {
   background-color: #133;
   padding: 20px;
@@ -62,21 +62,52 @@ nav a[aria-current="page"] {
   color: #133;
 }
 
-/* Main sections */
-main {
-  max-width: 800px;
+/* Layout grid for main content */
+.layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas:
+    "intro   profile"
+    "about   profile"
+    "contact contact";
+  gap: 20px;
+  max-width: 1000px;
   margin: 30px auto;
   padding: 0 20px;
 }
 
-section {
-  margin-bottom: 40px;
+/* Card style reused */
+.card {
   background: #fff;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
+/* Assign grid areas */
+#intro { grid-area: intro; }
+.profile { grid-area: profile; }
+#about { grid-area: about; }
+#contact { grid-area: contact; }
+.full { grid-column: 1 / -1; }
+
+/* Profile photo styling */
+.profile {
+  align-self: start;
+  position: sticky; /* keep visible when scrolling */
+  top: 20px;
+  padding: 0;       /* remove extra padding so image fills */
+  overflow: hidden;
+}
+.profile img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Headings */
 h2 {
   font-size: 22px;
   margin-bottom: 10px;
@@ -95,4 +126,20 @@ footer {
   color: #fff;
   margin-top: 40px;
   font-size: 14px;
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 800px) {
+  .layout {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "intro"
+      "profile"
+      "about"
+      "contact";
+  }
+  .profile {
+    position: static;
+    top: auto;
+  }
 }
