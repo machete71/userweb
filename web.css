@@ -6,10 +6,18 @@ body, h1, h2, p, ul, li {
 
 /* Apply some basic styles */
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Helvetica Neue", Arial, sans-serif;
   background-color: #F2F2F2;
   color: #333;
   line-height: 1.6;
+
+    /* expansions */
+  font-size: 16px;
+  margin: 0;
+  padding: 1rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Skip link for keyboard users */
