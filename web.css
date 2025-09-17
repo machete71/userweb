@@ -1,17 +1,29 @@
-/* Reset some default browser styles */
-body, h1, h2, p, ul, li {
-  margin: 0;
-  padding: 0;
+/* =========
+   Tokens
+   ========= */
+:root{
+  --bg: #0f1115;
+  --bg-elev: #151821;
+  --panel: #1a1f29;
+  --panel-elev: #202633;
+  --text: #e6e7ea;
+  --muted: #a7afbf;
+  --border: #2a3242;
+  --accent: #ff2b87;
+  --radius: 10px;
+  --shadow: 0 1px 0 rgba(255,255,255,0.03), 0 8px 24px rgba(0,0,0,0.35);
 }
 
-/* Apply some basic styles */
-body {
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  background-color: #F2F2F2;
-  color: #333;
-  line-height: 1.6;
+/* Reset */
+*{box-sizing:border-box}
+body, h1, h2, p, ul, li { margin: 0; padding: 0; }
 
-  /* expansions */
+/* Base */
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans";
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
   font-size: 16px;
   margin: 0;
   padding: 1rem;
@@ -20,55 +32,54 @@ body {
   margin-right: auto;
 }
 
-/* Skip link for keyboard users */
+/* Skip link */
 .skip {
   position: absolute;
   top: -40px;
   left: 0;
-  background: #fff;
-  color: #000;
+  background: var(--panel-elev);
+  color: var(--text);
   padding: 8px 12px;
   z-index: 100;
+  border: 1px solid var(--border);
+  border-radius: 6px;
 }
-.skip:focus {
-  top: 10px;
-}
+.skip:focus { top: 10px; }
 
 /* Header */
 header {
-  background-color: #133;
+  background-color: var(--bg-elev);
   padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
 }
 
 h1 {
-  color: #fff;
+  color: var(--text);
   font-size: 28px;
   margin-bottom: 10px;
 }
 
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-}
-
+/* Nav */
+nav ul { list-style: none; display: flex; gap: 20px; }
 nav a {
-  color: #cce;
+  color: var(--muted);
   text-decoration: none;
-  font-weight: bold;
-  padding: 4px 6px;
-  border-radius: 6px;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid transparent;
 }
-
 nav a:hover,
 nav a:focus {
-  background: #245;
-  color: #fff;
+  background: var(--panel);
+  color: var(--text);
+  border-color: var(--border);
 }
-
 nav a[aria-current="page"] {
-  background: #fff;
-  color: #133;
+  background: var(--accent);
+  color: #0b0b0b;
 }
 
 /* Layout grid for main content */
@@ -87,10 +98,12 @@ nav a[aria-current="page"] {
 
 /* Card style reused */
 .card {
-  background: #fff;
+  background: var(--panel);
+  color: var(--text);
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
 }
 
 /* Assign grid areas */
@@ -106,41 +119,45 @@ nav a[aria-current="page"] {
   position: sticky;     /* keep visible when scrolling */
   top: 20px;
 }
+
 /* Profile card hugs image */
 .profile.card {
   padding: 0;           /* override .card padding */
   overflow: hidden;     /* clip corners/overflow */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: block;
 }
 
 .profile.card img {
   display: block;
   width: 100%;          /* image fills card width */
   height: auto;         /* keep aspect ratio */
-  border-radius: 8px;   /* match card rounding */
+  border-radius: var(--radius);
 }
 
 /* Headings */
 h2 {
   font-size: 22px;
   margin-bottom: 10px;
-  color: #133;
+  color: #fff;
 }
 
-p {
-  margin-bottom: 10px;
-}
+p { margin-bottom: 10px; }
+
+/* Links in content */
+a { color: var(--accent); }
+a:hover { opacity: .92; }
 
 /* Footer */
 footer {
   text-align: center;
   padding: 20px;
-  background: #133;
-  color: #fff;
+  background: var(--bg-elev);
+  color: var(--muted);
   margin-top: 40px;
   font-size: 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
 }
 
 /* Responsive: stack on small screens */
@@ -153,10 +170,7 @@ footer {
       "about"
       "contact";
   }
-  .profile {
-    position: static;
-    top: auto;
-  }
+  .profile { position: static; top: auto; }
 }
 
 /* Back button styling */
@@ -164,13 +178,12 @@ footer {
   display: inline-block;
   margin-bottom: 10px;
   padding: 8px 14px;
-  background: #133;
-  color: #fff;
+  background: var(--accent);
+  color: #0b0b0b;
   text-decoration: none;
-  border-radius: 6px;
-  font-weight: bold;
+  border-radius: 999px;
+  font-weight: 700;
+  border: 1px solid transparent;
 }
 .back-button:hover,
-.back-button:focus {
-  background: #245;
-}
+.back-button:focus { filter: brightness(.95); }
