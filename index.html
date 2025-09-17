@@ -1,35 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <link rel="stylesheet" href="web.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>My Simple Website</title>
+  <link rel="stylesheet" href="web.css">
 </head>
 <body>
+  <a class="skip" href="#content">Skip to content</a>
+
   <header>
     <h1>Welcome to My Website</h1>
-    <nav>
+    <nav aria-label="Main">
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="#" aria-current="page">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <main>
-    <section>
+  <main id="content">
+    <section id="about">
       <h2>About Me</h2>
       <p>I’m a web developer passionate about creating websites.</p>
     </section>
 
-    <section>
+    <section id="contact">
       <h2>Contact</h2>
-      <p>You can reach me at: michaelmascitti@gmail.com</p>
+      <p>Email: <a href="mailto:michaelmascitti@gmail.com">michaelmascitti@gmail.com</a></p>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 My Simple Website. All rights reserved.</p>
+    <p>&copy; 2025 Michael Mascitti. All rights reserved.</p>
   </footer>
 </body>
 </html>
