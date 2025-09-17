@@ -113,7 +113,6 @@ nav a[aria-current="page"] {
   height: auto;
   object-fit: cover;
   border-radius: 8px;
-  background: transparent; /* in case image has white background set */
 }
 
 /* Headings */
