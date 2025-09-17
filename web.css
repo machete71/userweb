@@ -151,3 +151,35 @@ footer {
     top: auto;
   }
 }
+
+/* Responsive: stack on small screens */
+@media (max-width: 800px) {
+  .layout {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "intro"
+      "profile"
+      "about"
+      "contact";
+  }
+  .profile {
+    position: static;
+  }
+}
+
+/* Back button styling */
+.back-button {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 8px 14px;
+  background: #133;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+}
+.back-button:hover,
+.back-button:focus {
+  background: #245;
+}
+
