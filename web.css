@@ -109,7 +109,7 @@ nav a[aria-current="page"] {
 }
 .profile img {
   display: block;
-  width: 75%;
+  width: 100%;
   height: auto;
   object-fit: cover;
   border-radius: 8px;
