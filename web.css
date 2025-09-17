@@ -9,6 +9,21 @@ body {
   font-family: Arial, sans-serif;
   background-color: #F2F2F2;
   color: #333;
+  line-height: 1.6;
+}
+
+/* Skip link for keyboard users */
+.skip {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #fff;
+  color: #000;
+  padding: 8px 12px;
+  z-index: 100;
+}
+.skip:focus {
+  top: 10px;
 }
 
 header {
@@ -24,4 +39,60 @@ h1 {
 
 nav ul {
   list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: #cce;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 4px 6px;
+  border-radius: 6px;
+}
+
+nav a:hover,
+nav a:focus {
+  background: #245;
+  color: #fff;
+}
+
+nav a[aria-current="page"] {
+  background: #fff;
+  color: #133;
+}
+
+/* Main sections */
+main {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+section {
+  margin-bottom: 40px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: #133;
+}
+
+p {
+  margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #133;
+  color: #fff;
+  margin-top: 40px;
+  font-size: 14px;
 }
