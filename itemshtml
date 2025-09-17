@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Items</title>
+  <link rel="stylesheet" href="web.css">
+</head>
+<body>
+  <header>
+    <h1>Items Page</h1>
+  </header>
+  <main>
+    <p>This is a new blank page where you can add content later.</p>
+  </main>
+</body>
+</html>
