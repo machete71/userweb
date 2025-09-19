@@ -4,74 +4,50 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Mike.Codes Site</title>
-  <meta name="description" content="Michael Mascitti — data-driven projects, research, learning, and programming.">
   <link rel="stylesheet" href="web.css">
 </head>
 <body>
-  <!-- Sidebar navigation -->
-  <aside class="sidebar">
-    <div class="logo">⚙️</div>
+  <a class="skip" href="#content">Skip to content</a>
+
+  <header>
+    <h1>Mike.Codes Portfolio Site</h1>
     <nav aria-label="Main">
       <ul>
-        <li><a href="index.html" aria-current="page">🏠 Home</a></li>
-        <li><a href="items.html">📦 Items</a></li>
-        <li><a href="#">📅 Events</a></li>
-        <li><a href="#">📝 Content</a></li>
-        <li><a href="#">👥 People</a></li>
-        <li><a href="#">💬 Discussion</a></li>
-        <li><a href="#">📨 Messages</a></li>
-        <li><a href="#">📷 Photos</a></li>
-        <li><a href="#">📚 Resources</a></li>
+        <li><a href="#" aria-current="page">Home</a></li>
+        <li><a href="items.html">Items</a></li>
       </ul>
     </nav>
-  </aside>
+  </header>
 
-  <!-- Main content wrapper -->
-  <div class="main">
-    <!-- Top bar -->
-    <header class="topbar">
-      <h1 class="site-title">Mike.Codes Portfolio</h1>
-      <form role="search">
-        <input type="search" placeholder="Search" aria-label="Search site">
-      </form>
-      <a href="#" class="signin">Sign In</a>
-    </header>
-
-    <!-- Hero / intro -->
-    <section class="hero">
-      <h2>Welcome</h2>
-      <p>Hi, I’m Michael. I build data-driven projects combining research, learning, and programming.</p>
-      <a href="items.html" class="back-button">Explore Items</a>
+  <main id="content" class="layout">
+    <!-- Introduction at top -->
+    <section id="intro" class="card">
+      <h2>Introduction</h2>
+      <p>Hi, I’m Michael. I am fully involved in building data-driven projects that combine research, learning, and programming.</p>
     </section>
 
-    <!-- About -->
-    <section id="about" class="card">
-      <h2>About Me</h2>
-      <p>Recently, I have been invested in building things with GPT as a tool. This means everything from reports to models to even this website. I learn through reading and also practicing my craft on real world applications.</p>
-    </section>
-
-    <!-- Profile image -->
+    <!-- Profile image on right -->
     <aside class="profile card">
-      <img src="me.jpg"
-           alt="Photo of Michael Mascitti"
-           loading="lazy"
-           decoding="async"
-           width="400"
-           height="500">
+      <img src="me.jpg" alt="Photo of Michael Mascitti">
     </aside>
 
-    <!-- Contact -->
+    <!-- About section under intro -->
+    <section id="about" class="card">
+      <h2>About Me</h2>
+      <p>Recently, I have been invested in building things with GPT as a tool. This means all things from reports, to models, to even this website. I learn through reading and also practicing my craft on real world applications. </p>
+    </section>
+
+    <!-- Contact stays at bottom full width -->
     <section id="contact" class="card full">
       <h2>Contact</h2>
       <p>Email: <a href="mailto:michaelmascitti@gmail.com">michaelmascitti@gmail.com</a></p>
       <p>Phone: <a href="tel:+15857660074">(585) 766-0074</a></p>
       <p>LinkedIn: <a href="https://www.linkedin.com/in/michael-mascitti-331a131b4/" target="_blank" rel="noopener">linkedin.com/in/michael-mascitti-331a131b4/</a></p>
     </section>
+  </main>
 
-    <!-- Footer -->
-    <footer>
-      <p>&copy; 2025 Michael Mascitti. All rights reserved.</p>
-    </footer>
-  </div>
+  <footer>
+    <p>&copy; 2025 Michael Mascitti. All rights reserved.</p>
+  </footer>
 </body>
 </html>
