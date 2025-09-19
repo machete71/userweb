@@ -1,225 +1,65 @@
-/* =========
-   Tokens
-   ========= */
-:root{
-  --bg: #0f1115;
-  --bg-elev: #151821;
-  --panel: #1a1f29;
-  --panel-elev: #202633;
-  --text: #e6e7ea;
-  --muted: #a7afbf;
-  --border: #2a3242;
-  --accent: #ff2b87;
-  --radius: 10px;
-  --shadow: 0 1px 0 rgba(255,255,255,0.03), 0 8px 24px rgba(0,0,0,0.35);
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mike.Codes Site</title>
+  <meta name="description" content="Michael Mascitti — data-driven projects, research, learning, and programming.">
+  <link rel="canonical" href="https://your-domain.example/">
+  <meta property="og:title" content="Mike.Codes Portfolio">
+  <meta property="og:description" content="Data-driven projects by Michael Mascitti.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://your-domain.example/">
+  <meta property="og:image" content="https://your-domain.example/og-image.jpg">
+  <link rel="stylesheet" href="web.css">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
 
-/* Reset */
-* { box-sizing: border-box; }
-body, h1, h2, p, ul, li { margin: 0; padding: 0; }
+  <header>
+    <h1>Mike.Codes Portfolio Site</h1>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#" aria-current="page">Home</a></li>
+        <li><a href="items.html">Items</a></li>
+      </ul>
+    </nav>
+  </header>
 
-/* Base */
-body {
-  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans";
-  background-color: var(--bg);
-  color: var(--text);
-  line-height: 1.65;
-  font-size: 16px;
-  padding: 1rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
+  <main id="content" class="layout">
+    <!-- Introduction at top -->
+    <section id="intro" class="card">
+      <h2>Introduction</h2>
+      <p>Hi, I’m Michael. I am fully involved in building data-driven projects that combine research, learning, and programming.</p>
+    </section>
 
-/* Global focus visibility */
-:where(a, button, .back-button):focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
-}
+    <!-- Profile image on right -->
+    <aside class="profile card">
+      <img src="me.jpg"
+           alt="Photo of Michael Mascitti"
+           loading="lazy"
+           decoding="async"
+           width="400"
+           height="500">
+    </aside>
 
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  * { animation: none !important; transition: none !important; }
-}
+    <!-- About section under intro -->
+    <section id="about" class="card">
+      <h2>About Me</h2>
+      <p>Recently, I have been invested in building things with GPT as a tool. This means all things from reports, to models, to even this website. I learn through reading and also practicing my craft on real world applications.</p>
+    </section>
 
-/* Skip link */
-.skip {
-  position: absolute;
-  top: -40px;
-  left: 0;
-  background: var(--panel-elev);
-  color: var(--text);
-  padding: 8px 12px;
-  z-index: 100;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-}
-.skip:focus {
-  top: 10px;
-  box-shadow: 0 0 0 3px #000 inset;
-}
+    <!-- Contact stays at bottom full width -->
+    <section id="contact" class="card full">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:michaelmascitti@gmail.com">michaelmascitti@gmail.com</a></p>
+      <p>Phone: <a href="tel:+15857660074">(585) 766-0074</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/michael-mascitti-331a131b4/" target="_blank" rel="noopener">linkedin.com/in/michael-mascitti-331a131b4/</a></p>
+    </section>
+  </main>
 
-/* Header */
-header {
-  background-color: var(--bg-elev);
-  padding: 20px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
-
-h1 {
-  color: var(--text);
-  font-size: 28px;
-  margin-bottom: 10px;
-}
-
-/* Nav */
-nav ul { list-style: none; display: flex; gap: 20px; }
-nav a {
-  color: var(--muted);
-  text-decoration: none;
-  font-weight: 600;
-  padding: 8px 12px; /* bigger tap target */
-  border-radius: 999px;
-  border: 1px solid transparent;
-}
-nav a:hover,
-nav a:focus {
-  background: var(--panel);
-  color: var(--text);
-  border-color: var(--border);
-}
-nav a[aria-current="page"] {
-  background: var(--accent);
-  color: #0b0b0b;
-  box-shadow: inset 0 0 0 1px #00000020;
-}
-
-/* Layout grid for main content */
-.layout {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-template-areas:
-    "intro   profile"
-    "about   profile"
-    "contact contact";
-  gap: 20px;
-  max-width: 1000px;
-  margin: 30px auto;
-  padding: 0 20px;
-}
-
-/* Card style reused */
-.card {
-  background: var(--panel);
-  color: var(--text);
-  padding: 20px;
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
-}
-/* Trim last-child spacing inside cards */
-.card > :last-child { margin-bottom: 0; }
-
-/* Assign grid areas */
-#intro { grid-area: intro; }
-.profile { grid-area: profile; }
-#about { grid-area: about; }
-#contact { grid-area: contact; }
-.full { grid-column: 1 / -1; }
-
-/* Profile layout behavior */
-.profile {
-  align-self: start;
-  position: sticky;     /* keep visible when scrolling */
-  top: 20px;
-}
-
-/* Profile card hugs image */
-.profile.card {
-  padding: 0;           /* override .card padding */
-  overflow: hidden;     /* clip corners/overflow */
-  display: block;
-}
-.profile.card img {
-  display: block;
-  width: 100%;          /* image fills card width */
-  height: auto;         /* keep aspect ratio */
-  border-radius: 0;     /* card handles rounding */
-}
-
-/* Headings */
-h2 {
-  font-size: 22px;
-  margin-bottom: 10px;
-  color: #fff;
-}
-
-p { margin-bottom: 10px; }
-
-/* Links in content */
-a { color: var(--accent); }
-a:hover { opacity: .92; }
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 20px;
-  background: var(--bg-elev);
-  color: var(--muted);
-  margin-top: 40px;
-  font-size: 14px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
-
-/* Responsive */
-@media (max-width: 1200px) {
-  body { padding: 1rem; }
-}
-@media (max-width: 800px) {
-  .layout {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "intro"
-      "profile"
-      "about"
-      "contact";
-    padding: 0;
-  }
-  .profile { position: static; top: auto; }
-}
-
-/* Back button styling */
-.back-button {
-  display: inline-block;
-  margin-bottom: 10px;
-  padding: 8px 14px;
-  background: var(--accent);
-  color: #0b0b0b;
-  text-decoration: none;
-  border-radius: 999px;
-  font-weight: 700;
-  border: 1px solid transparent;
-}
-.back-button:hover,
-.back-button:focus { filter: brightness(.95); }
-
-/* Optional: light theme */
-@media (prefers-color-scheme: light) {
-  :root{
-    --bg:#f7f8fa; --bg-elev:#ffffff; --panel:#ffffff; --panel-elev:#f3f5f9;
-    --text:#1e2430; --muted:#4b5565; --border:#d8dee9; --accent:#e11d48;
-  }
-  nav a[aria-current="page"] { color:#ffffff; }
-  .back-button { color:#ffffff; }
-}
-
-/* Optional: print */
-@media print {
-  body { background:#fff; color:#000; }
-  header, footer, .profile { display:none; }
-  a { color:#000; text-decoration: underline; }
-  .card { box-shadow:none; border:1px solid #ccc; }
-}
+  <footer>
+    <p>&copy; 2025 Michael Mascitti. All rights reserved.</p>
+  </footer>
+</body>
+</html>
