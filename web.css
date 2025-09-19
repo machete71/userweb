@@ -15,7 +15,7 @@
 }
 
 /* Reset */
-*{box-sizing:border-box}
+* { box-sizing: border-box; }
 body, h1, h2, p, ul, li { margin: 0; padding: 0; }
 
 /* Base */
@@ -25,11 +25,20 @@ body {
   color: var(--text);
   line-height: 1.65;
   font-size: 16px;
-  margin: 0;
   padding: 1rem;
   max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
+}
+
+/* Global focus visibility */
+:where(a, button, .back-button):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
 }
 
 /* Skip link */
@@ -44,7 +53,10 @@ body {
   border: 1px solid var(--border);
   border-radius: 6px;
 }
-.skip:focus { top: 10px; }
+.skip:focus {
+  top: 10px;
+  box-shadow: 0 0 0 3px #000 inset;
+}
 
 /* Header */
 header {
@@ -67,7 +79,7 @@ nav a {
   color: var(--muted);
   text-decoration: none;
   font-weight: 600;
-  padding: 6px 10px;
+  padding: 8px 12px; /* bigger tap target */
   border-radius: 999px;
   border: 1px solid transparent;
 }
@@ -80,6 +92,7 @@ nav a:focus {
 nav a[aria-current="page"] {
   background: var(--accent);
   color: #0b0b0b;
+  box-shadow: inset 0 0 0 1px #00000020;
 }
 
 /* Layout grid for main content */
@@ -105,6 +118,8 @@ nav a[aria-current="page"] {
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
 }
+/* Trim last-child spacing inside cards */
+.card > :last-child { margin-bottom: 0; }
 
 /* Assign grid areas */
 #intro { grid-area: intro; }
@@ -126,12 +141,11 @@ nav a[aria-current="page"] {
   overflow: hidden;     /* clip corners/overflow */
   display: block;
 }
-
 .profile.card img {
   display: block;
   width: 100%;          /* image fills card width */
   height: auto;         /* keep aspect ratio */
-  border-radius: var(--radius);
+  border-radius: 0;     /* card handles rounding */
 }
 
 /* Headings */
@@ -160,7 +174,10 @@ footer {
   box-shadow: var(--shadow);
 }
 
-/* Responsive: stack on small screens */
+/* Responsive */
+@media (max-width: 1200px) {
+  body { padding: 1rem; }
+}
 @media (max-width: 800px) {
   .layout {
     grid-template-columns: 1fr;
@@ -169,6 +186,7 @@ footer {
       "profile"
       "about"
       "contact";
+    padding: 0;
   }
   .profile { position: static; top: auto; }
 }
@@ -187,3 +205,21 @@ footer {
 }
 .back-button:hover,
 .back-button:focus { filter: brightness(.95); }
+
+/* Optional: light theme */
+@media (prefers-color-scheme: light) {
+  :root{
+    --bg:#f7f8fa; --bg-elev:#ffffff; --panel:#ffffff; --panel-elev:#f3f5f9;
+    --text:#1e2430; --muted:#4b5565; --border:#d8dee9; --accent:#e11d48;
+  }
+  nav a[aria-current="page"] { color:#ffffff; }
+  .back-button { color:#ffffff; }
+}
+
+/* Optional: print */
+@media print {
+  body { background:#fff; color:#000; }
+  header, footer, .profile { display:none; }
+  a { color:#000; text-decoration: underline; }
+  .card { box-shadow:none; border:1px solid #ccc; }
+}
